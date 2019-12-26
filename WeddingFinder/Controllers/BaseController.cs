@@ -26,7 +26,8 @@ namespace WeddingFinder.Controllers
             searchData.CategoryList = Context.Category.ToList();
             searchData.StateList = Context.State.ToList();
             searchData.StateList.Insert(0, new State { StateName = "All States", StateDisplayName = "All States"});
-            //searchData.RegionList = Context.Region.ToList();            
+            //searchData.RegionList = Context.Region.ToList();
+            Console.WriteLine("test");
             return searchData;
         }                
 
