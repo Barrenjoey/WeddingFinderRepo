@@ -1,0 +1,55 @@
+﻿@model WeddingFinder.Models.CategoriesViewModel
+
+    <div class="container" style="padding-top:10px;padding-left:15px">
+        <!--h2>@Model.Category</!--h2>    -->
+        <h4 id="breadCrumbs" style="padding:5px">
+            @Model.Category
+        </h4>
+        @{
+            @foreach (var businessViewModel in Model.BusinessList)
+            {
+                <div class="border-top">
+                    <div class="row" style="padding:10px">
+                        <div class="col-3">
+                            <div>
+                                <a href="/@Model.Category/@businessViewModel.Business.BusinessName">
+                                    <img alt="@businessViewModel.Business.BusinessName" title="@businessViewModel.Business.BusinessName" src="@Url.Content(businessViewModel.Content.ImgProfile)" class="logo" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <h4>
+                                <a href="/@Model.Category/@businessViewModel.Business.BusinessName" style="color:#555;font-size:24px;text-decoration:none">@businessViewModel.Business.BusinessName</a>
+                            </h4>
+                            <div>
+                                ** Review Section **
+                            </div>
+                            <div style="padding-top:5px">
+                                @businessViewModel.Content.ShortBlurb
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
+        }
+        @section Scripts{
+            <script>
+    $(function () {
+        var searchCrumbs = '@(ViewBag.SearchData.CurrentSearchFilter)'
+        var breadCrumbs = "";
+        if (searchCrumbs != null && searchCrumbs != "") {
+            var searchList = searchCrumbs.split(",");
+            breadCrumbs = searchList[0];
+            if (searchList.length > 1) {
+                breadCrumbs += (' / ' + searchList[1]);
+                if (searchList.length > 2) {
+                    breadCrumbs += (' / ' + searchList[2]);
+                }
+            }
+        }
+        $("#breadCrumbs").html(breadCrumbs);
+    });
+            </script> }
+
+    </div>

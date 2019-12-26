@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WeddingFinder</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid wfSiteNav">
+        <div class="container">
+            <div class="row wfMainLogo no-gutters">
+                <div class="col-4">
+                    <a href="/">
+                        <img alt="The Wedding Finder" title="The Wedding Finder" src="~/images/logo3.png" class="logo" />
+                    </a>
+                </div>
+                <div class="col-4">
+
+                </div>
+                <div class="col-4">
+                    <img alt="Facebook" title="Facebook" src="~/images/Icons/28.png" class="logo socialIcons" align="right" />
+                    <img alt="Instagram" title="Instagram" src="~/images/Icons/27.png" class="logo socialIcons" align="right" />
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#f0dbe2">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="container">
+                    <div class="row navbar-nav navbar-collapse nav-justified">
+                        <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/FindSuppliers">Find Suppliers</a>
+                        <a class="nav-item nav-link" style="color:white;font-family:'Raleway', sans-serif;" href="/RealWeddings">Real Weddings</a>
+                        <a class="nav-item nav-link" style="color:white;font-family:'Raleway', sans-serif;" href="/AboutUs">About Us</a>
+                        <a class="nav-item nav-link" style="color:white;font-family:'Raleway', sans-serif;" href="/ListBusiness">List Business</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid" style="background-image:url(@ViewBag.ImgUrl); min-height:300px">
+        <div class="container text-center" style="min-height:inherit; padding-top:220px">
+            <div class="btn-group">
+                <div class="btn-group">
+                    <button class="btn btn-light btn-lg dropdown-toggle rounded-0" id="searchCategory" data-flip="false" style="overflow:hidden;text-overflow:ellipsis;min-width:220px;font-family:'Raleway', sans-serif;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </button>
+                    <div class="dropdown-menu" id="selectionCategory" style="max-height:400px;overflow-y:scroll">
+                        @foreach (var item in ViewBag.SearchData.CategoryList)
+                        {
+                            <a class="dropdown-item" href="#">@item.CategoryName</a>
+                        }
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-light btn-lg dropdown-toggle rounded-0" id="searchState" data-flip="false" style="overflow:hidden;text-overflow:ellipsis;min-width:220px;font-family:'Raleway', sans-serif;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                        @ViewBag.SearchData.StateList[0].StateDisplayName
+                    </button>
+                    <div class="dropdown-menu" id="selectionState" style="max-height:400px;overflow-y:scroll">
+                        @foreach (var item in ViewBag.SearchData.StateList)
+                        {
+                            <a class="dropdown-item" href="#">@item.StateDisplayName</a>
+                        }
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-light btn-lg dropdown-toggle rounded-0" id="searchRegion" data-flip="false" style="overflow:hidden;text-overflow:ellipsis;min-width:220px;font-family:'Raleway', sans-serif;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                        All Regions
+                    </button>
+                    <div class="dropdown-menu" id="selectionRegion" style="max-height:400px;overflow-y:scroll">
+                        
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <a class="btn btn-dark btn-lg rounded-0 border-0" role="button" id="searchButton" style="min-width:220px;font-family:'Raleway', sans-serif;background-color:#cd869f" type="button" href="/">
+                        Search
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+
+    <div class="container-fluid">
+        <div class="container">
+            <footer>
+                <hr />
+                <p>&copy; 2019 - TheWeddingFinder</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+    <!--Search Functionality-->
+    <script>        
+        var selectedCategory = null;
+        var selectedState = "All States";
+        var selectedRegion = "All Regions";
+        var selectedStateID = null;
+        var searchUrl = "/";
+                
+        $(function () {
+            $(document).ready(function () {
+                var searchString = '@(ViewBag.SearchData.CurrentSearchFilter)'
+                if (searchString != null && searchString != "") {                    
+                    var searchList = searchString.split(",");
+                    selectedCategory = searchList[0];
+                    $("#searchCategory").html(selectedCategory);
+                    if (searchList.length > 1) {
+                        selectedState = searchList[1];
+                        $("#searchState").html(selectedState);
+                        
+                        if (searchList.length > 2) {                            
+                            selectedRegion = searchList[2];
+                            $("#searchRegion").html(selectedRegion);                             
+                        }
+                    }                    
+                    document.getElementById("searchButton").href = GetSearchUrl();
+                    GetRegionsByState();
+                }                
+            });
+        });
+        $(function () {
+            $("#selectionCategory a").click(function () {                        
+                selectedCategory = $(this).text();        
+                $("#searchCategory").html(selectedCategory);          
+                searchUrl = searchUrl + selectedCategory;
+                document.getElementById("searchButton").href = GetSearchUrl();  
+                
+            });             
+        });  
+        $(function () {
+            $("#selectionState a").click(function () {   
+                selectedRegion = "All Regions";
+                $("#searchRegion").html(selectedRegion);
+                selectedState = $(this).text();        
+                $("#searchState").html(selectedState);                      
+                document.getElementById("searchButton").href = GetSearchUrl();                           
+                GetRegionsByState();
+            });             
+        });  
+        $(function () {
+            $("#selectionRegion").on("click", "a", function () {        
+                selectedRegion = $(this).text();        
+                $("#searchRegion").html(selectedRegion); 
+                document.getElementById("searchButton").href = GetSearchUrl();
+            }); 
+        });  
+        function GetSearchUrl() {
+            searchUrl = "/";
+            if (selectedCategory != null) {
+                searchUrl = searchUrl + selectedCategory;
+                $("#searchState").prop('disabled', false);
+                if (selectedState != null) {
+                    searchUrl = searchUrl + "/?searchFilters=&state=" + selectedState + "&region=" + selectedRegion
+                    if (selectedState != "All States" && selectedState != null) {
+                        $("#searchRegion").prop('disabled', false);
+                    }
+                    else {
+                        selectedRegion = "All Regions";
+                        $("#searchRegion").html(selectedRegion);
+                        $("#searchRegion").prop('disabled', true);
+                    }
+                    //if (selectedRegion != null) {
+                    //    searchUrl = searchUrl + "&region=" + selectedRegion
+                    //}
+                }            
+            }
+            return searchUrl;
+        }        
+        function GetRegionsByState() {                
+            var filteredRegions = document.getElementById("selectionRegion");             
+            $('#selectionRegion').children().remove(); 
+            var allRegionsNode = document.createElement("a");
+            allRegionsNode.innerText = "All Regions";
+            allRegionsNode.className = "dropdown-item";
+            allRegionsNode.href = "#";
+            filteredRegions.appendChild(allRegionsNode);                        
+            $.ajax({
+                url: "/Venues/GetRegionsByState",
+                data: { state: selectedState },
+                type: "Post",
+                success: function(result) {                                  
+                    for (var i = 0; i < Object.keys(result).length; i++) {
+                        //alert(result[i]);                        
+                        var li = document.createElement("a");
+                        li.innerText = result[i];
+                        li.className = "dropdown-item";
+                        li.href = "#";
+                        filteredRegions.appendChild(li);
+                    }                    
+                }
+            });            
+        }
+    </script>
+</body>
+</html>
