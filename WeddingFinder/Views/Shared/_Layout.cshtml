@@ -9,39 +9,49 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container-fluid wfSiteNav">
-        <div class="container">
-            <div class="row wfMainLogo no-gutters">
-                <div class="col-4">
-                    <a href="/">
-                        <img alt="The Wedding Finder" title="The Wedding Finder" src="~/images/logo3.png" class="logo" />
-                    </a>
-                </div>
-                <div class="col-4">
-
-                </div>
-                <div class="col-4">
-                    <img alt="Facebook" title="Facebook" src="~/images/Icons/28.png" class="logo socialIcons" align="right" />
-                    <img alt="Instagram" title="Instagram" src="~/images/Icons/27.png" class="logo socialIcons" align="right" />
+    <div class="container-fluid wfSiteNav" style="padding-top:10px;padding-bottom:5px;">
+        <div class="row wfMainLogo no-gutters" style="padding-left:50px;padding-right:50px;">
+            <div class="col-3">
+                <a href="/">
+                    <img alt="The Wedding Finder" title="The Wedding Finder" src="~/images/logo/logo6.png" class="logo" />
+                </a>
+            </div>
+            <div class="col-6">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="container">
+                            <div class="row navbar-nav navbar-collapse nav-justified">
+                                <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/FindSuppliers">Find Suppliers</a>
+                                <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/RealWeddings">Real Weddings</a>
+                                <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/AboutUs">About Us</a>
+                                <a class="nav-item nav-link" style="color:#cd869f;font-family:'Raleway', sans-serif;" href="/ListBusiness">List Business</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-3">
+                <img alt="Facebook" title="Facebook" src="~/images/Icons/28.png" class="logo socialIcons" align="right" />
+                <img alt="Instagram" title="Instagram" src="~/images/Icons/27.png" class="logo socialIcons" align="right" />
+            </div>
+        </div>
+        <!--nav class="navbar navbar-expand-lg navbar-light" style="background-color:#f0dbe2">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="container">
+                <div class="row navbar-nav navbar-collapse nav-justified">
+                    <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/FindSuppliers">Find Suppliers</a>
+                    <a class="nav-item nav-link" style="color:white;font-family:'Raleway', sans-serif;" href="/RealWeddings">Real Weddings</a>
+                    <a class="nav-item nav-link" style="color:white;font-family:'Raleway', sans-serif;" href="/AboutUs">About Us</a>
+                    <a class="nav-item nav-link" style="color:white;font-family:'Raleway', sans-serif;" href="/ListBusiness">List Business</a>
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#f0dbe2">
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="container">
-                    <div class="row navbar-nav navbar-collapse nav-justified">
-                        <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/">Home <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/FindSuppliers">Find Suppliers</a>
-                        <a class="nav-item nav-link" style="color:white;font-family:'Raleway', sans-serif;" href="/RealWeddings">Real Weddings</a>
-                        <a class="nav-item nav-link" style="color:white;font-family:'Raleway', sans-serif;" href="/AboutUs">About Us</a>
-                        <a class="nav-item nav-link" style="color:white;font-family:'Raleway', sans-serif;" href="/ListBusiness">List Business</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+    </nav>-->
     </div>
-    <div class="container-fluid" style="background-image:url(@ViewBag.ImgUrl); min-height:300px">
-        <div class="container text-center" style="min-height:inherit; padding-top:220px">
+    <div class="container-fluid" style="background-image:url(@ViewBag.ImgUrl); min-height:360px">
+        <div class="container text-center" style="min-height:inherit; padding-top:240px">
             <div class="btn-group">
                 <div class="btn-group">
                     <button class="btn btn-light btn-lg dropdown-toggle rounded-0" id="searchCategory" data-flip="false" style="overflow:hidden;text-overflow:ellipsis;min-width:220px;font-family:'Raleway', sans-serif;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,7 +65,10 @@
                     </div>
                 </div>
                 <div class="btn-group">
-                    <button class="btn btn-light btn-lg dropdown-toggle rounded-0" id="searchState" data-flip="false" style="overflow:hidden;text-overflow:ellipsis;min-width:220px;font-family:'Raleway', sans-serif;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                    <button class="btn btn-light btn-lg dropdown-toggle rounded-0" id="searchState" data-flip="false" style="        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 220px;
+        font-family: 'Raleway', sans-serif;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
                         @ViewBag.SearchData.StateList[0].StateDisplayName
                     </button>
                     <div class="dropdown-menu" id="selectionState" style="max-height:400px;overflow-y:scroll">
@@ -66,7 +79,10 @@
                     </div>
                 </div>
                 <div class="btn-group">
-                    <button class="btn btn-light btn-lg dropdown-toggle rounded-0" id="searchRegion" data-flip="false" style="overflow:hidden;text-overflow:ellipsis;min-width:220px;font-family:'Raleway', sans-serif;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                    <button class="btn btn-light btn-lg dropdown-toggle rounded-0" id="searchRegion" data-flip="false" style="        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 220px;
+        font-family: 'Raleway', sans-serif;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
                         All Regions
                     </button>
                     <div class="dropdown-menu" id="selectionRegion" style="max-height:400px;overflow-y:scroll">
@@ -74,7 +90,10 @@
                     </div>
                 </div>
                 <div class="btn-group">
-                    <a class="btn btn-dark btn-lg rounded-0 border-0" role="button" id="searchButton" style="min-width:220px;font-family:'Raleway', sans-serif;background-color:#cd869f" type="button" href="/">
+                    <a class="btn btn-dark btn-lg rounded-0 border-0" role="button" id="searchButton" style="        min-width: 220px;
+        font-family: 'Raleway', sans-serif;
+        background-color: #cd869f
+" type="button" href="/">
                         Search
                     </a>
                 </div>
