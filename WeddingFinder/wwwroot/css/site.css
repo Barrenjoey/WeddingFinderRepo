@@ -21,16 +21,54 @@ body {
 }
 
 .nav-item {
-    font-weight: 600;
+    font-weight: 800;
+}
+    .nav-item:hover {
+        background-color: #f5eaee;
+    }
+
+#searchButton {
+    min-width: 220px;
+    font-family: 'Raleway', sans-serif;
+    background-color: #cd869f;
+    font-weight: 500
+}
+.btn-light:hover {
+    background-color: #f5eaee;
 }
 
-    .nav-item:hover {
-        background-color: #FBF2EF;
-    }
+#searchButton {
+    min-width: 220px;
+    font-family: 'Raleway',sans-serif;
+    background-color: #cd869f
+}
+#searchButton:hover {
+    background-color: #97576c;
+}
 
 .categoriesImgRow {
     padding-top: 30px;
 }
+
+.categoryImgLabel {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    width: 65%;
+    background: #f5eaee;
+    color: #343434;
+    font-family: 'Raleway',sans-serif;
+    letter-spacing: 1px;
+    font-size: 18px;
+    padding: 8px;
+    font-weight: 500;
+    text-transform:uppercase;
+}
+    .categoryImgLabel:hover {
+        background-color: #e2e6ea;
+    }
 
 .searchNav {
     padding-top: 20px;

@@ -9,11 +9,11 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container-fluid wfSiteNav" style="padding-top:10px;padding-bottom:5px">
+    <div class="container-fluid wfSiteNav" style="padding-top:5px;padding-bottom:5px">
         <div class="row wfMainLogo no-gutters" style="padding-left:60px;padding-right:60px;">
             <div class="col-2">
                 <a href="/">
-                    <img alt="The Wedding Finder" title="The Wedding Finder" src="~/images/logo/logo9.png" class="logo" />
+                    <img alt="The Wedding Finder" title="The Wedding Finder" src="~/images/logo/logo10.png" class="logo" />
                 </a>
             </div>
             <div class="col-8">
@@ -24,8 +24,8 @@
                                 <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/">Home <span class="sr-only">(current)</span></a>
                                 <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/FindSuppliers">Find Suppliers</a>
                                 <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/RealWeddings">Real Weddings</a>
-                                <a class="nav-item nav-link" style="color:#343434;font-family:'Raleway', sans-serif;" href="/AboutUs">About Us</a>
-                                <a class="nav-item nav-link" style="color:#343434;font-family:'Raleway', sans-serif;" href="/ListBusiness">List Business</a>
+                                <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/AboutUs">About Us</a>
+                                <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/ListBusiness">List Business</a>
                             </div>
                         </div>
                     </div>
@@ -36,23 +36,10 @@
                 <img alt="Instagram" title="Instagram" src="~/images/Icons/27.png" class="logo socialIcons" align="right" />
             </div>
         </div>
-        <!--nav class="navbar navbar-expand-lg navbar-light" style="background-color:#f0dbe2">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="container">
-                <div class="row navbar-nav navbar-collapse nav-justified">
-                    <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" style="font-family:'Raleway', sans-serif;" href="/FindSuppliers">Find Suppliers</a>
-                    <a class="nav-item nav-link" style="color:white;font-family:'Raleway', sans-serif;" href="/RealWeddings">Real Weddings</a>
-                    <a class="nav-item nav-link" style="color:white;font-family:'Raleway', sans-serif;" href="/AboutUs">About Us</a>
-                    <a class="nav-item nav-link" style="color:white;font-family:'Raleway', sans-serif;" href="/ListBusiness">List Business</a>
-                </div>
-            </div>
-        </div>
-    </nav>-->
     </div>
-    <div class="container-fluid" style="background-image:url(@ViewBag.ImgUrl); min-height:400px">
+    <div class="container-fluid" style="background-image:url(@ViewBag.ImgUrl);min-height:400px;background-position:center center;background-repeat:no-repeat;background-size:cover">
         <div class="container text-center" style="min-height:inherit; padding-top:300px">
-            <div class="btn-group">
+            <div class="btn-group flex-wrap">
                 <div class="btn-group">
                     <button class="btn btn-light btn-lg dropdown-toggle rounded-0" id="searchCategory" data-flip="false" style="overflow:hidden;text-overflow:ellipsis;min-width:220px;font-family:'Raleway', sans-serif;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Categories
@@ -90,10 +77,7 @@
                     </div>
                 </div>
                 <div class="btn-group">
-                    <a class="btn btn-dark btn-lg rounded-0 border-0" role="button" id="searchButton" style="        min-width: 220px;
-        font-family: 'Raleway', sans-serif;
-        background-color: #cd869f
-" type="button" href="/">
+                    <a class="btn btn-dark btn-lg rounded-0 border-0" role="button" id="searchButton" type="button" href="/">
                         Search
                     </a>
                 </div>
