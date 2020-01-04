@@ -61,6 +61,17 @@ namespace WeddingFinder.Controllers
             return content;
         }
 
+        public BusinessViewModel GetBusinessViewModel(Business business)
+        {
+            BusinessViewModel viewmodel = new BusinessViewModel();
+            viewmodel = (from bus in Context.Business
+                            join adr in Context.Address on bus.AddressId equals adr.AddressId
+                            join sta in Context.State on adr.StateId equals sta.StateId
+                            where bus.WedFinId == business.WedFinId
+                            select new BusinessViewModel { Business = bus, Address = adr, Content = bus.Content, Region = adr.Region, Contact = bus.Contact }).FirstOrDefault();
+            return viewmodel;
+        }
+
         public CategoriesViewModel GetCategoriesViewModel(string category)
         {            
             CategoriesViewModel viewModel = new CategoriesViewModel();

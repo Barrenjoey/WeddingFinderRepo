@@ -12,6 +12,7 @@ namespace WeddingFinder.ViewModels
         public Region Region { get; set; }
         public Content Content { get; set; }
         public Address Address { get; set; }
+        public Contact Contact { get; set; }
 
     }
 }

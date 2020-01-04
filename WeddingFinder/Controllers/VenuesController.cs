@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WeddingFinder.Models;
+using WeddingFinder.ViewModels;
 
 namespace WeddingFinder.Controllers
 {
@@ -31,17 +32,18 @@ namespace WeddingFinder.Controllers
         {
             string name = RouteData.Values["Controller"].ToString();
             Business business = GetBusinessByName(businessName);
-            if (business == null || business.ContentId == null)
+            if (business == null)
             {
+                // Put in logging
                 return Redirect("/");
             }
-            Content content = GetContentbyID(business.ContentId);
+            BusinessViewModel viewModel = GetBusinessViewModel(business);         
 
             ViewBag.Title = business.BusinessName;
             ViewBag.ImgUrl = "/Images/background.jpeg";
             ViewBag.SearchData = SearchData;
 
-            return View("Business", content);            // Need to put in businessViewModel
+            return View("Business", viewModel);            // Need to put in businessViewModel
         }
         
     }

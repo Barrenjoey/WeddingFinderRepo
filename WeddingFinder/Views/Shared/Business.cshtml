@@ -1,17 +1,46 @@
-﻿@model WeddingFinder.Models.Content;
+﻿@model WeddingFinder.ViewModels.BusinessViewModel;
 
 <div class="container">
-    <h2>@ViewBag.Title</h2>
-    <br />
-    <p>
-        @Model.Body1
-    </p>
-    <p>
-        @Model.Body2
-    </p>
-    <p>
-        @Model.Body3
-    </p>
+    <div class="row no-gutters" style="padding-top:30px;">
+        <div class="col-4">
+            <img alt="@Model.Business.BusinessName" title="@Model.Business.BusinessName" src="@Url.Content(Model.Content.ImgProfile)" class="logo" />
+        </div>
+        <div class="col-8">
+            <div class="row no-gutters">
+                <div class="col-12">
+                    <h2>@ViewBag.Title</h2>
+                </div>
+                <div class="col-5">
+                    <br />
+                    <p style="letter-spacing:1px">Rating</p>
+                    <p style="letter-spacing:1px">Location</p>
+                    <p style="letter-spacing:1px">Serviceable Regions</p>
+                    <p style="letter-spacing:1px">Contact</p>
+                    <p style="letter-spacing:1px">Website</p>
+                </div>
+                <div class="col-7">
+                    <br />
+                    <p>*****</p>
+                    <p style="letter-spacing:1px">@Model.Address.SteetNumber @Model.Address.Street, @Model.Address.Suburb, @Model.Address.State.StateName</p>
+                    <p></p>
+                    <p>@Model.Contact.ContactNumber</p>
+                    <p><a href="@Model.Business.Website">@Model.Business.Website</a></p>
+                </div>
+            </div>            
+        </div>        
+    </div>
+    <div>
+        <br />
+        <p>
+            @Model.Content.Body1
+        </p>
+        <p>
+            @Model.Content.Body2
+        </p>
+        <p>
+            @Model.Content.Body3
+        </p>
+    </div>    
 </div>
     
 

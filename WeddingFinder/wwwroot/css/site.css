@@ -50,7 +50,7 @@ body {
     padding-top: 30px;
 }
 
-.categoryImgLabel {
+.categoryImgLabel { 
     text-align: center;
     top: 50%;
     left: 50%;
@@ -61,7 +61,7 @@ body {
     color: #343434;
     font-family: 'Raleway',sans-serif;
     letter-spacing: 1px;
-    font-size: 18px;
+    font-size: 14pt;
     padding: 8px;
     font-weight: 500;
     text-transform:uppercase;
