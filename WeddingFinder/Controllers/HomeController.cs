@@ -13,7 +13,7 @@ namespace WeddingFinder.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.ImgUrl = "/images/background2.1.png";            
+            ViewBag.ImgUrl = "/images/background2.2.png";            
             ViewBag.SearchData = SearchData;
             return View();            
         }

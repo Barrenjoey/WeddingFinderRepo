@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>My Now Amazing Webpage</title>    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>
+        .slick-prev:before, .slick-next:before { 
+            color:black !important;
+            width: 40px !important;
+            height: 60px !important;
+            background-color: grey;
+            top: 40% !important;
+        }
+        .slick-prev:after, .slick-next:after { 
+            color:black !important;
+            width: 40px !important;
+            height: 60px !important;
+            background-color: grey;
+            top: 40%;
+        }
+        .slick-prev{
+            left: 0px;
+            z-index: 1000;
+        }
+        .slick-next{
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+  </head>
+  <body>
+
+<div class="container">
+<div>
+    Filler Div
+</div>
+  <div class="your-class">
+    <div>1<img src="C:\Users\J_vdm\source\repos\WeddingFinderRepo\WeddingFinder\wwwroot\images\Categories\Cakes.JPG" class="img-fluid mx-auto d-block" alt="img1"></div>
+    <div>2<img src="C:\Users\J_vdm\source\repos\WeddingFinderRepo\WeddingFinder\wwwroot\images\Categories\Cars.JPG" class="img-fluid mx-auto d-block" alt="img2"></div>
+    <div>3<img src="C:\Users\J_vdm\source\repos\WeddingFinderRepo\WeddingFinder\wwwroot\images\Categories\Dresses.JPG" class="img-fluid mx-auto d-block" alt="img1"></div>
+    <div>4<img src="C:\Users\J_vdm\source\repos\WeddingFinderRepo\WeddingFinder\wwwroot\images\Categories\Cakes.JPG" class="img-fluid mx-auto d-block" alt="img2"></div>
+    <div>5<img src="C:\Users\J_vdm\source\repos\WeddingFinderRepo\WeddingFinder\wwwroot\images\Categories\Cars.JPG" class="img-fluid mx-auto d-block" alt="img1"></div>
+    <div>6<img src="C:\Users\J_vdm\source\repos\WeddingFinderRepo\WeddingFinder\wwwroot\images\Categories\Dresses.JPG" class="img-fluid mx-auto d-block" alt="img2"></div>
+    <div>7<img src="C:\Users\J_vdm\source\repos\WeddingFinderRepo\WeddingFinder\wwwroot\images\Categories\Cakes.JPG" class="img-fluid mx-auto d-block" alt="img1"></div>
+    <div>8<img src="C:\Users\J_vdm\source\repos\WeddingFinderRepo\WeddingFinder\wwwroot\images\Categories\Cars.JPG" class="img-fluid mx-auto d-block" alt="img2"></div>
+    <div>9<img src="C:\Users\J_vdm\source\repos\WeddingFinderRepo\WeddingFinder\wwwroot\images\Categories\Dresses.JPG" class="img-fluid mx-auto d-block" alt="img1"></div>
+  </div>
+  <div>
+      Filler div
+  </div>
+</div>    
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.your-class').slick({
+        infinite: true,
+        slidesToShow: 7,
+        slidesToScroll: 1,
+        arrows: true,
+        swipe: true,
+        swipeToSlide: true
+      });
+    });
+  </script>
+
+  </body>
+</html>
+			
+
+<!--
+C:\Users\J_vdm\source\repos\WeddingFinderRepo\WeddingFinder\wwwroot\images\profileTest.JPG
+C:\Users\J_vdm\source\repos\WeddingFinderRepo\WeddingFinder\wwwroot\images\defaultImage.PNG
+-->
