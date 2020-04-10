@@ -3,6 +3,189 @@
     ViewData["Title"] = "List Business";
 }
 
-<div class="container body-content">
-    <h2>List Business</h2>
+<div class="container-fluid whyList">
+    <div class="container whyListContainer">
+        <div class="whyListTitle">
+            Why List With The Wedding Finder
+            <hr />
+        </div>
+        <div class="whyListBody">
+            Well for starters, every listing is Free! Yes you read correctly, Free! No Lock in, upfront, hefty monthly payments.
+            We believe every Wedding business should be given the opportunity to be listed on a Wedding Finder regardless if you are a start-up or a well established business. Your customer wants options and the Wedding Finder gives your customers just that!
+            So what are you waiting for? Sign up and get your business listed on The Wedding Finder! 
+        </div>
+    </div>
+</div>
+<div class="container-fluid listBusiness">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 listBusinessContainer">        
+            <div class="listBusinessTitle">
+                List Your Business With the Wedding Finder
+            </div>
+            <div class="listBusinessForm">
+                <form>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormBusiness">First Name</label>
+                            <input type="text" class="form-control" id="listFormBusiness">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormBusiness">Last Name</label>
+                            <input type="text" class="form-control" id="listFormBusiness">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormEmail">Email</label>
+                            <input type="email" class="form-control" id="listFormEmail">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormContact">Contact Number</label>
+                            <input type="text" class="form-control" id="listFormContact">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormStreet">Street</label>
+                            <input type="text" class="form-control" id="listFormStreet">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormSuburb">Suburb</label>
+                            <input type="text" class="form-control" id="listFormSuburb">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="listFormPostcode">Postcode</label>
+                            <input type="text" class="form-control" id="listFormPostcode">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormState">State</label>
+                            <select id="listFormState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormRegion">Region</label>
+                            <select id="listFormRegion" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row" style="padding-bottom:30px;padding-top:10px;">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-5">
+                            Does your business service more than one region?
+                        </div>
+                        <div class="form-check col-md-3">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="listFormRad1" value="option1" checked>
+                            <label class="form-check-label" for="listFormRad1">
+                                One Region
+                            </label>
+                        </div>
+                        <div class="form-check col-md-3">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="listFormRad2" value="option2">
+                            <label class="form-check-label" for="listFormRad2">
+                                Several Regions
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormBusiness">Business Name</label>
+                            <input type="text" class="form-control" id="listFormBusiness">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormCategory">Category</label>
+                            <select id="listFormCategory" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormInsta">Instagram Url</label>
+                            <input type="text" class="form-control" id="listFormInsta">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormFacebook">Facebook Url</label>
+                            <input type="text" class="form-control" id="listFormFacebook">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="listFormWebsite">Website Url</label>
+                            <input type="text" class="form-control" id="listFormWebsite">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label for="listFormShortDesc">Enter a short description of your business. This will display on the Categories Listing Page (50 words max):</label>
+                            <textarea class="form-control" id="listFormShortDesc" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label for="listFormFullDesc">Enter a full description of your business:</label>
+                            <textarea class="form-control" id="listFormFullDesc" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group">
+                            <label for="listFormUploadImg">Upload Image/Logo</label>
+                            <input type="file" class="form-control-file" id="listFormUploadImg">
+                        </div>
+                    </div>
+                    <div class="form-row" style="padding-top:20px;">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                    I Agree to the Terms and Conditions
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row" style="padding-top:10px;padding-bottom:30px;">
+                        <div class="col-md-1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Listing</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

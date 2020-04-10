@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WeddingFinder.Controllers
 {
-    public class AboutUsController : Controller
+    public class ContactUsController : BaseController
     {
         public IActionResult Index()
         {
+            ViewBag.SearchData = SearchData;
+            ViewBag.ImgUrl = "/images/background2.JPG";
             return View();
         }
     }

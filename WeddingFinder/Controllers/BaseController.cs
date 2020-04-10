@@ -76,11 +76,12 @@ namespace WeddingFinder.Controllers
         {            
             CategoriesViewModel viewModel = new CategoriesViewModel();
             List<BusinessViewModel> businessViewModelList = new List<BusinessViewModel>();
-            List<Business> businesses = Context.Business.Where(x => x.Category.ToString() == category).ToList();
-            foreach (var business in businesses)
-            {
-                businessViewModelList.Add(new BusinessViewModel { Business = business });
-            }
+            businessViewModelList = (from bus in Context.Business
+                                    join adr in Context.Address on bus.AddressId equals adr.AddressId
+                                    join sta in Context.State on adr.StateId equals sta.StateId
+                                    where bus.Category.CategoryName == category
+                                    select new BusinessViewModel { Business = bus, Address = adr, Content = bus.Content, Region = adr.Region }).ToList();
+
             viewModel.BusinessList = businessViewModelList;
             viewModel.Category = category;
             return viewModel;
