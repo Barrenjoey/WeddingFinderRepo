@@ -11,41 +11,56 @@ namespace WeddingFinder.Controllers
 {
     public class ListBusinessController : BaseController
     {
+        public string BackgroundImage { get; set; }
+
+        public ListBusinessController()
+        {
+            BackgroundImage = "/images/background2.JPG";
+        }
+
         public IActionResult Index()
         {
             ViewBag.SearchData = SearchData;
-            ViewBag.ImgUrl = "/images/background2.JPG";
-            return View(PopulateDropdowns());
+            ViewBag.ImgUrl = BackgroundImage;
+            return View(PopulateDropdowns(new ListBusinessFormViewModel()));
         }
 
         [HttpPost]
         public IActionResult SubmitForm(ListBusinessFormViewModel formModel)
         {
             // Server side validation (in new project)
-            // - Category Not Equal default choice.
-            if (formModel.Category == null || formModel.Category == "Please select one")
+            if (!ModelState.IsValid)
             {
-                return View("Index", formModel);                
-            }            
-
+                ViewBag.SearchData = SearchData;
+                ViewBag.ImgUrl = BackgroundImage;
+                return View("Index", PopulateDropdowns(formModel));
+            }      
 
             // Email to inbox
 
 
             // Redirect to Thankyou page
-            return Content("test");
+            return Redirect("/ListBusiness/ThankYou");
         }
 
-        private ListBusinessFormViewModel PopulateDropdowns()
-        {
-            ListBusinessFormViewModel formViewModel = new ListBusinessFormViewModel();
+        private ListBusinessFormViewModel PopulateDropdowns(ListBusinessFormViewModel formViewModel)
+        {            
             List<Category> categoryList = new List<Category>();
+            List<State> stateList = new List<State>();
             categoryList = Context.Category.ToList();
+            stateList = Context.State.ToList();
             formViewModel.CategoryList = categoryList;
-            //formViewModel.CategoryList = new SelectList(categoryList, "CategoryId", "CategoryName");
-            //formViewModel.CategoryList.Prepend(new SelectListItem { Text = "Please choose one", Value = "" });
+            formViewModel.StateList = stateList;            
 
             return formViewModel;
+        }
+
+        [Route("ListBusiness/ThankYou")]
+        public IActionResult ThankYou()
+        {
+            ViewBag.SearchData = SearchData;
+            ViewBag.ImgUrl = BackgroundImage;
+            return View();
         }
     }
 }

@@ -7,6 +7,7 @@ using WeddingFinder.Context;
 using WeddingFinder.Models;
 using WeddingFinder.ViewModels;
 using WeddingFinder.Helpers.Enums;
+using System.Text.Json;
 
 namespace WeddingFinder.Controllers
 {
@@ -150,6 +151,25 @@ namespace WeddingFinder.Controllers
             }
             return filteredRegions;
             //return Json(filteredRegions);
+        }
+
+        [HttpPost]
+        public IActionResult GetRegionsByStateID(string stateId)
+        {
+            List<Region> filteredRegions = new List<Region>();
+
+            if (!string.IsNullOrEmpty(stateId))
+            {
+                int stateIdInt = int.Parse(stateId);
+                //filteredRegions = Context.Region.Where(X => X.StateId == stateIdInt).ToList();
+                return Json(Context.Region.Select(x => new 
+                { 
+                    RegionID = x.RegionId,
+                    RegionName = x.RegionName
+                }).ToList());
+            }            
+
+            return Json(filteredRegions);            
         }
     }
 }

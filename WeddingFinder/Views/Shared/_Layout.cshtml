@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <style>
         .imageBackdrop {
             background-image:url(@ViewBag.ImgUrl);
@@ -24,20 +25,20 @@
             text-overflow: ellipsis;
             min-width: 220px;
             font-family: 'Raleway', sans-serif;
-        }        
+        }
         @@media (max-width: 576px) {
-            .imageBackdrop {        
+            .imageBackdrop {
                 background-image:none;
                 min-height:unset;
             }
-            .imageBackdropMob{                
-                visibility:visible;                
+            .imageBackdropMob{
+                visibility:visible;
                 height: auto;
             }
             #searchCategory, #searchState, #searchRegion, #searchButton{
                 font-size:12px;
             }
-            .searchBarButton{                
+            .searchBarButton{
                 min-width:105px;
                 max-width:105px;
                 text-overflow:
@@ -62,18 +63,18 @@
             }
         }
         @@media (min-width: 576px) and (max-width: 768px) {
-            .imageBackdrop {        
+            .imageBackdrop {
                 background-image:none;
                 min-height:unset;
             }
-            .imageBackdropMob{                
-                visibility:visible;                
+            .imageBackdropMob{
+                visibility:visible;
                 height: auto;
             }
             #searchCategory, #searchState, #searchRegion, #searchButton{
                 font-size:14px;
             }
-            .searchBarButton{                
+            .searchBarButton{
                 min-width:150px;
                 max-width:150px;
             }
@@ -186,7 +187,7 @@
         </div>
     </div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
