@@ -14,13 +14,13 @@ namespace WeddingFinder.ViewModels
         [DisplayName("First Name")]
         [Required]
         [StringLength(20)]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "First Name must contain letters only")]
+        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "First Name must contain letters only")]
         public string FirstName { get; set; }
 
         [DisplayName("Last Name")]
         [Required]
         [StringLength(30)]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Last Name must contain letters only")]
+        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "Last Name must contain letters only")]
         public string LastName { get; set; }
 
         [Required]
@@ -36,7 +36,7 @@ namespace WeddingFinder.ViewModels
 
         [Required]
         [StringLength(70)]
-        [RegularExpression(@"^[a-zA-Z0-9/ ]*$", ErrorMessage = "Street address contains invalid characters")]
+        [RegularExpression(@"^[a-zA-Z0-9/, ]*$", ErrorMessage = "Street address contains invalid characters")]
         public string Street { get; set; }
 
         [Required]
@@ -56,7 +56,7 @@ namespace WeddingFinder.ViewModels
 
         [Required]
         [StringLength(30)]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Region is invalid")]
+        [RegularExpression(@"^[0-9]*$", ErrorMessage = "Region is invalid")]
         public string Region { get; set; }
 
         [DisplayName("Business Name")]
@@ -100,7 +100,12 @@ namespace WeddingFinder.ViewModels
         [DisplayName("I Agree to the Terms and Conditions")]
         [Compare("isTrue", ErrorMessage = "You must agree to the Terms and Conditions")]
         public bool TermsAndConditions { get; set; }
-        
+
+        public bool HasSeveralRegions { get; set; }
+
+        [DisplayName("Additional Regions Serviced")]
+        public List<int> ServicedRegions { get; set; }
+
         public List<Category> CategoryList { get; set; }
 
         public List<State> StateList { get; set; }        

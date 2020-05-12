@@ -160,9 +160,8 @@ namespace WeddingFinder.Controllers
 
             if (!string.IsNullOrEmpty(stateId))
             {
-                int stateIdInt = int.Parse(stateId);
-                //filteredRegions = Context.Region.Where(X => X.StateId == stateIdInt).ToList();
-                return Json(Context.Region.Select(x => new 
+                int stateIdInt = int.Parse(stateId);                
+                return Json(Context.Region.Where(x => x.StateId == stateIdInt).Select(x => new 
                 { 
                     RegionID = x.RegionId,
                     RegionName = x.RegionName

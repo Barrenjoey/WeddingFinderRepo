@@ -96,29 +96,39 @@
                         <div class="form-group col-md-5">
                             <label asp-for="Region"></label>
                             <select asp-for="Region"
-                                   class="form-control" id="listBusinessRegionBox">
+                                    class="form-control" id="listBusinessRegionBox">
                                 <option value="">Please select one</option>
                             </select>
                             <span asp-validation-for="Region" class="text-danger"></span>
                         </div>
                     </div>
-                    <div class="form-row" style="padding-bottom:30px;padding-top:10px;">
+                    <div class="form-row" style="padding-bottom:30px;padding-top:15px;">
                         <div class="col-md-1">
                         </div>
                         <div class="col-md-5">
                             Does your business service more than one region?
                         </div>
                         <div class="form-check col-md-3">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="listFormRad1" value="option1" checked>
-                            <label class="form-check-label" for="listFormRad1">
+                            <input type="radio" asp-for="HasSeveralRegions" value="false" id="servicedRegionsRadio1"/>
+                            <label class="form-check-label" for="servicedRegionsRadio1">
                                 One Region
                             </label>
                         </div>
                         <div class="form-check col-md-3">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="listFormRad2" value="option2">
-                            <label class="form-check-label" for="listFormRad2">
+                            <input type="radio" asp-for="HasSeveralRegions" value="true" id="servicedRegionsRadio2"/>
+                            <label class="form-check-label" for="servicedRegionsRadio2">
                                 Several Regions
                             </label>
+                        </div>
+                    </div>
+                    <div class="form-row" id="servicedRegionsRow" hidden>
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label asp-for="ServicedRegions"></label>
+                            <select asp-for="ServicedRegions" class="form-control" id="servicedRegionsBox" multiple="multiple"></select>
+                        </div>
+                        <div class="col-md-1">
                         </div>
                     </div>
                     <div class="form-row">
@@ -127,12 +137,12 @@
                         <div class="form-group col-md-5">
                             <label asp-for="BusinessName"></label>
                             <input asp-for="BusinessName" class="form-control">
-                            <span asp-validation-for="BusinessName" class="text-danger"></span>                            
+                            <span asp-validation-for="BusinessName" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-5">
                             <label asp-for="Category"></label>
                             <select asp-for="Category"
-                                asp-items="@(new SelectList(Model.CategoryList,"CategoryId", "CategoryName"))" class="form-control"> 
+                                    asp-items="@(new SelectList(Model.CategoryList,"CategoryId", "CategoryName"))" class="form-control">
                                 <option value="">Please select one</option>
                             </select>
                             <span asp-validation-for="Category" class="text-danger"></span>
@@ -169,7 +179,7 @@
                             <textarea asp-for="ShortDescription" class="form-control"></textarea>
                             <span asp-validation-for="ShortDescription" class="text-danger"></span>
                             <!--label for="listFormShortDesc">Enter a short description of your business. This will display on the Categories Listing Page (50 words max):</!--label>
-    <textarea class="form-control" id="listFormShortDesc" rows="3"></textarea>-->
+            <textarea class="form-control" id="listFormShortDesc" rows="3"></textarea>-->
                         </div>
                     </div>
                     <div class="form-row">
@@ -178,7 +188,7 @@
                         <div class="form-group col-md-10">
                             <label asp-for="FullDescription"></label>
                             <textarea asp-for="FullDescription" class="form-control"></textarea>
-                            <span asp-validation-for="FullDescription" class="text-danger"></span>                            
+                            <span asp-validation-for="FullDescription" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-row">
@@ -195,8 +205,8 @@
                         <div class="form-group col-md-6">
                             <label asp-for="TermsAndConditions"></label>
                             <input type="checkbox" asp-for="TermsAndConditions" class="form-control" style="width:20px;height:20px;">
-                            <span asp-validation-for="TermsAndConditions" class="text-danger"></span>                            
-                        </div>                        
+                            <span asp-validation-for="TermsAndConditions" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-row" style="padding-top:10px;padding-bottom:30px;">
                         <div class="col-md-1">
@@ -220,14 +230,44 @@
                 data: { stateId: ListBusinessState },
                 type: "Post",
                 success: function (data) {
-                    console.log(data);
-                    var regionOptions = '<option value="-1">Please select one</option>'; 
+                    var baseOptions = '';
+                    var defaultOption = '<option value="-1">Please select one</option>'; 
                     for (var i = 0; i < Object.keys(data).length; i++) {                        
-                        regionOptions += '<option value="' + data[i].RegionID + '">' + data[i].RegionName + '</option>';
+                        baseOptions += '<option value="' + data[i].regionID + '">' + data[i].regionName + '</option>';
                         }
-                        $("#listBusinessRegionBox").html(regionOptions)
+                $("#listBusinessRegionBox").html(defaultOption += baseOptions);
+                $("#servicedRegionsBox").html(baseOptions);
                 }
             });
             });
+    });
+    $(document).ready(function(){
+        ListBusinessState = $("select.stateBox").children("option:selected").val();
+        console.log(ListBusinessState);
+        console.log("Postback");
+            $.ajax({
+            url: "/ListBusiness/GetRegionsByStateID",
+            data: { stateId: ListBusinessState },
+            type: "Post",
+            success: function (data) {
+                var baseOptions = '';
+                var defaultOption = '<option value="-1">Please select one</option>'; 
+                for (var i = 0; i < Object.keys(data).length; i++) {                        
+                    baseOptions += '<option value="' + data[i].regionID + '">' + data[i].regionName + '</option>';
+                    }
+                $("#listBusinessRegionBox").html(defaultOption += baseOptions);
+                $("#servicedRegionsBox").html(baseOptions);
+            }
         });
+    });
+    $('#servicedRegionsRadio1').click(function() {
+        if ($('input[name=HasSeveralRegions]:checked')) {            
+            $('#servicedRegionsRow').attr("hidden", true);
+        }        
+    });
+    $('#servicedRegionsRadio2').click(function() {
+        if ($('input[name=HasSeveralRegions]:checked')) {            
+            $('#servicedRegionsRow').removeAttr("hidden");
+        }
+    });
 </script>
