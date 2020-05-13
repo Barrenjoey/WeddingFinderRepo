@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MailServerClient;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WeddingFinder.Models;
 using WeddingFinder.ViewModels;
+
 
 namespace WeddingFinder.Controllers
 {
@@ -34,11 +36,11 @@ namespace WeddingFinder.Controllers
                 ViewBag.SearchData = SearchData;
                 ViewBag.ImgUrl = BackgroundImage;
                 return View("Index", PopulateDropdowns(formModel));
-            }      
+            }
 
             // Email to inbox
-
-
+            MailService mailService = new MailService();
+            
             // Redirect to Thankyou page
             return Redirect("/ListBusiness/ThankYou");
         }

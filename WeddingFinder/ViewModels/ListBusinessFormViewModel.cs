@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -105,6 +107,9 @@ namespace WeddingFinder.ViewModels
 
         [DisplayName("Additional Regions Serviced")]
         public List<int> ServicedRegions { get; set; }
+
+        [BindProperty]
+        public FormFile Upload { get; set; }
 
         public List<Category> CategoryList { get; set; }
 

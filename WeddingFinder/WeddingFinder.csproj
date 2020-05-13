@@ -22,4 +22,8 @@
     <Folder Include="Test\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\repos\MailServerClient\MailServerClient\MailServerClient.csproj" />
+  </ItemGroup>
+
 </Project>
