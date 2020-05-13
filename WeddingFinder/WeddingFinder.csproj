@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\repos\MailServerClient\MailServerClient\MailServerClient.csproj" />
+    <ProjectReference Include="..\MailServerClient\MailServerClient.csproj" />
   </ItemGroup>
 
 </Project>

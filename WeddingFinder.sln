@@ -5,11 +5,9 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeddingFinder", "WeddingFinder\WeddingFinder.csproj", "{E08ACCEF-BCAC-4C5F-B24A-F30D6DDB42BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailServerClient", "..\repos\MailServerClient\MailServerClient\MailServerClient.csproj", "{7F94B85F-A4F4-490D-898D-EA0FC065C3A5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0F4CCD2E-A9BA-40C0-9722-D1D9D25FC7C4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailServerClientTests", "..\repos\MailServerClient\MailServerClientTests\MailServerClientTests.csproj", "{B1EDF4A3-3EFB-4007-89E4-FD7018FD178E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailServerClient", "MailServerClient\MailServerClient.csproj", "{56854030-F168-4D0F-B12F-F3FC0AB982EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,20 +19,13 @@ Global
 		{E08ACCEF-BCAC-4C5F-B24A-F30D6DDB42BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E08ACCEF-BCAC-4C5F-B24A-F30D6DDB42BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E08ACCEF-BCAC-4C5F-B24A-F30D6DDB42BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F94B85F-A4F4-490D-898D-EA0FC065C3A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F94B85F-A4F4-490D-898D-EA0FC065C3A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F94B85F-A4F4-490D-898D-EA0FC065C3A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F94B85F-A4F4-490D-898D-EA0FC065C3A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1EDF4A3-3EFB-4007-89E4-FD7018FD178E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1EDF4A3-3EFB-4007-89E4-FD7018FD178E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1EDF4A3-3EFB-4007-89E4-FD7018FD178E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1EDF4A3-3EFB-4007-89E4-FD7018FD178E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56854030-F168-4D0F-B12F-F3FC0AB982EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56854030-F168-4D0F-B12F-F3FC0AB982EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56854030-F168-4D0F-B12F-F3FC0AB982EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56854030-F168-4D0F-B12F-F3FC0AB982EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{B1EDF4A3-3EFB-4007-89E4-FD7018FD178E} = {0F4CCD2E-A9BA-40C0-9722-D1D9D25FC7C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {18FF597A-D6EE-474E-ACF9-6B3CFD95D669}
