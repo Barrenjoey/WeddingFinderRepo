@@ -8,15 +8,17 @@ using WeddingFinder.Models;
 using WeddingFinder.ViewModels;
 using WeddingFinder.Helpers.Enums;
 using System.Text.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace WeddingFinder.Controllers
 {
     public abstract class BaseController : Controller
     {
+        //private readonly IConfiguration _config;
         public WeddingFinderContext Context { get; set; }
         public SearchViewModel SearchData { get; set; }
         public BaseController()
-        {
+        {            
             Context = new WeddingFinderContext();
             SearchData = GetSearchData();                        
         }
