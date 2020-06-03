@@ -43,15 +43,17 @@ namespace WeddingFinder.Controllers
             }
 
             // TODO: Check for existing businesses with the same name / email. Return to view if exists.
-            if (true)
-            {
-
+            if (CheckIfAlreadyExists(formModel.BusinessName, formModel.Email))
+            {                
+                ViewBag.SearchData = SearchData;
+                ViewBag.ImgUrl = BackgroundImage;
+                return View("Index", PopulateDropdowns(formModel));
             }
 
             // Create Email
             EmailMessage message = new EmailMessage();                        
             message = CreateMessageFromFormViewModel(message, formModel);
-
+            
             // Connect to Mail Service and send
             string apiKey = _config.GetValue(typeof(string), "AppSettings:MailServerApiKey").ToString();
             string endpoint = _config.GetValue(typeof(string), "AppSettings:MailServerEndpoint").ToString();
@@ -101,30 +103,39 @@ namespace WeddingFinder.Controllers
                 $"<p><b>Email: </b> {model.Email}<p>" +
                 $"<p><b>Contact Number: </b> {model.ContactNumber}<p>" +
                 $"<p><b>Street: </b> {model.Street}<p>" +
-                $"<p><b>Subrub: </b> {model.Suburb}<p>";
-
-            var x = @"string FirstName       
-            string LastName
-            string Email
-            string ContactNumber
-            string Street
-            string Suburb
-            string Postcode
-            string State
-            string Region
-            string BusinessName
-            string Category
-            string Instagram
-            string Facebook
-            string Website
-            string ShortDescription
-            string FullDescription
-            bool TermsAndConditions
-            bool HasSeveralRegions
-            List<int> ServicedRegions
-            FormFile Upload";
+                $"<p><b>Subrub: </b> {model.Suburb}<p>" +
+                $"<p><b>Postcode: </b> {model.Postcode}<p>" +
+                $"<p><b>State: </b> {model.State}<p>" +                
+                $"<p><b>Region: </b> {model.Region}<p>" +
+                $"<p><b>ServicedRegions: </b> {model.ServicedRegions}<p>" +
+                $"<p><b>BusinessName: </b> {model.BusinessName}<p>" +
+                $"<p><b>Category: </b> {model.Category}<p>" +
+                $"<p><b>Instagram: </b> {model.Instagram}<p>" +
+                $"<p><b>Facebook: </b> {model.Facebook}<p>" +
+                $"<p><b>Website: </b> {model.Website}<p>" +
+                $"<p><b>ShortDescription: </b> {model.ShortDescription}<p>" +
+                $"<p><b>FullDescription: </b> {model.FullDescription}<p>" +
+                $"<p><b>Image: </b> {model.Upload}<p>";            
 
             return message;
+        }
+
+        private bool CheckIfAlreadyExists(string business, string email)
+        {
+            bool exists = false;
+            var businessName = Context.Business.Where(x => x.BusinessName == business);
+            var emailAddress = Context.Contact.Where(x => x.Email == email);
+            if (businessName != null)
+            {
+                ModelState.AddModelError("Exists", "The Business already exists");
+                exists = true;
+            }
+            if (email != null)
+            {
+                ModelState.AddModelError("Exists", "The Email already exists");
+                exists = true;
+            }
+            return exists;
         }
     }
 }

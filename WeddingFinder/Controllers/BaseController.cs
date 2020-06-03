@@ -13,8 +13,7 @@ using Microsoft.Extensions.Configuration;
 namespace WeddingFinder.Controllers
 {
     public abstract class BaseController : Controller
-    {
-        //private readonly IConfiguration _config;
+    {        
         public WeddingFinderContext Context { get; set; }
         public SearchViewModel SearchData { get; set; }
         public BaseController()

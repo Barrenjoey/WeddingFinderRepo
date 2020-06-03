@@ -1,8 +1,86 @@
-﻿
+﻿@model WeddingFinder.ViewModels.ContactUsViewModel
 @{
-    ViewData["Title"] = "About Us";
+    ViewData["Title"] = "Contact Us";
 }
 
-<div class="container body-content">
-    <h2>About Us</h2>
+<div class="container-fluid whyList">
+    <div class="container whyListContainer">
+        <div class="whyListTitle">
+            Contact Us
+            <hr />
+        </div>
+        <div class="whyListBody">
+            You can contact us here
+        </div>
+    </div>
+</div>
+<div class="container-fluid listBusiness">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 listBusinessContainer">
+            <div class="listBusinessTitle">
+                Contact Us
+            </div>
+            <div class="listBusinessForm">
+                <form asp-action="SubmitForm" asp-controller="ListBusiness">
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label asp-for="FirstName"></label>
+                            <input asp-for="FirstName" class="form-control">
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label asp-for="LastName"></label>
+                            <input asp-for="LastName" class="form-control">
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label asp-for="ContactNumber"></label>
+                            <input asp-for="ContactNumber" class="form-control">
+                            <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label asp-for="Category"></label>
+                            <select asp-for="Category"
+                                    asp-items="@(new SelectList(Model.Categories))" class="form-control">
+                                <option value="">Please select one</option>
+                            </select>
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label asp-for="Description"></label>
+                            <textarea asp-for="Description" class="form-control"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row" style="padding-top:10px;padding-bottom:30px;">
+                        <div class="col-md-1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
